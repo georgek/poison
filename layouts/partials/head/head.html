@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"{{with .Site.LanguageCode}} xml:lang="{{.}}" lang="{{.}}"{{end}}>
-<head>
+    <head>
     {{ partial "head/scripts.html" . }}
 
     <!-- Content Type -->
@@ -20,4 +20,6 @@
 
     <!-- Custom style tag for parameterized CSS -->
     {{ partial "head/css.html" . }}
+
+    {{ partial "extra-head.html" . }}
 </head>
