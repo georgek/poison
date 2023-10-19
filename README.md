@@ -1,5 +1,8 @@
 # Poison
 
+> [!NOTE]
+> This is my (georgek's) fork of Poison that I use for my personal [blog](https://georgek.github.io/blog/).
+
 ![Poison screenshot](https://raw.githubusercontent.com/lukeorth/poison/master/images/screenshot.png)
 
 ### DEMO - https://poison.lukeorth.com/
