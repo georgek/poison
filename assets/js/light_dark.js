@@ -2,9 +2,11 @@ const btn = document.querySelector(".btn-light-dark");
 const moon = document.querySelector(".moon");
 const sun = document.querySelector(".sun");
 
-const themeFromLS = localStorage.getItem("theme")
-const themeFromHugo = document.body.classList.contains("dark-theme") ? "dark" : null
-const currentTheme = themeFromLS ? themeFromLS : themeFromHugo;
+const themeFromLS = localStorage.getItem("theme");
+const themeFromUser =
+      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)
+      ? "dark" : null;
+const currentTheme = themeFromLS ? themeFromLS : themeFromUser;
 
 if (currentTheme == "dark") {
     document.body.classList.add("dark-theme");
