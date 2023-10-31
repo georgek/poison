@@ -9,9 +9,11 @@
 
 *Poison* is a **clean**, **professional** Hugo theme designed to **captivate** your readers.
 
-It's also **tiny** and **privacy conscious** with *no external dependencies* (unless you opt to include comments).  No JavaScript frameworks, icon packs, or Google fonts.  No ads or trackers polluting your console window.  **We kept things simple**.  A little vanilla JavaScript, a dash of CSS, and the power of Hugo.
+It's also **tiny** and **privacy conscious** with *no external dependencies*.  No JavaScript frameworks, icon packs, or Google fonts.  No ads or trackers polluting your console window.  **We kept things simple**.  A little vanilla JavaScript, a dash of CSS, and the power of Hugo.
 
-All the static assets for the site (JS files, CSS, and fonts) are located within the theme's */assets/* directory.  **That way you know *exactly* what's going on your site**.
+All the static assets for the site (JS files, CSS, and fonts) are located within the theme's */assets/* directory.  **That way you know *exactly* what's going onto your site**.
+
+Check out our demo site's analytics [here](https://plausible.lukeorth.com/poison.lukeorth.com) to gauge community interest in the theme.
 
 ---
 
@@ -21,10 +23,11 @@ All the static assets for the site (JS files, CSS, and fonts) are located within
     - [DEMO - https://poison.lukeorth.com/](#demo---httpspoisonlukeorthcom)
   - [Contents](#contents)
   - [Features](#features)
-    - [Light and Dark Mode](#light-and-dark-mode)
-    - [Table of Contents](#table-of-contents)
+    - [Light & dark mode](#light-and-dark-mode)
+    - [Table of contents](#table-of-contents)
     - [Comments](#comments)
     - [Analytics](#analytics)
+    - [Email newsletters](#email-newsletters)
     - [Series](#series)
     - [KaTeX](#katex)
     - [Tabs](#tabs)
@@ -32,9 +35,9 @@ All the static assets for the site (JS files, CSS, and fonts) are located within
     - [PlantUML diagrams](#plantuml-diagrams)
   - [Installation](#installation)
   - [How to Configure](#how-to-configure)
-    - [The Sidebar Menu](#the-sidebar-menu)
-    - [The Front Page](#the-front-page)
-    - [Example Config](#example-config)
+    - [The sidebar menu](#the-sidebar-menu)
+    - [The front page](#the-front-page)
+    - [Example config](#example-config)
     - [Custom CSS](#custom-css)
   - [Suggestions / Contributions](#suggestions--contributions)
   - [Author](#author)
@@ -45,14 +48,14 @@ All the static assets for the site (JS files, CSS, and fonts) are located within
 
 In addition to the standard Built-in templates and shortcodes that come with Hugo, *Poison* offers some unique features of its own.
 
-### Light and Dark Mode
+### Light and dark mode
 Give readers the choice to read in light or dark mode.  The user's preference is stored in local storage.  Light mode is the default for first time visitors, but you can change this in your config file.
 <p float="left">
   <img src="https://user-images.githubusercontent.com/35306887/210615342-ab3e0b88-fbd2-405a-bad1-2fa8b21982be.png" width="700" />
   <img src="https://user-images.githubusercontent.com/35306887/210615432-7484c310-0b0d-46eb-b491-4b50c2e8a2aa.png" width="700" />
 </p>
 
-### Table of Contents
+### Table of contents
 Provide a floating table of contents for readers with large enough screens (i.e. *screen-width > 1600 pixels*).
 
 If you prefer not to display a table of contents, you can disable them site-wide in your ```config.toml``` file.
@@ -91,7 +94,7 @@ disqusShortname = 'yourDisqusShortname'
 
 This is a great option for people that don't want to bother with self-hosting their own commenting engine; however, it has some drawbacks.  Because *Disqus* provides this service for free, they recoup any financial loss by injecting third-party ad trackers onto your website.  These trackers help to collect and sell information about your users, while also negatively affecting your site's speed.
 
-Even still, *Disqus* may be the best solution depending on your situation (we use it on this demo site).  The above paragraph is only meant to highlight its trade-offs and not meant to discourage its use entirely.
+Even still, *Disqus* may be the best solution depending on your situation.  The above paragraph is only meant to highlight its trade-offs and not meant to discourage its use entirely.
 
 ***Remark42*** is a lightweight, open source commenting engine that doesn't spy on your users.  The downside is that you must host it yourself.  Checkout the *Remark42* [documentation](https://remark42.com/) to get started.  I also found [this blog post](https://www.devbitsandbytes.com/setting-up-remark42-from-scratch/) helpful when setting it up on [my site](https://lukeorth.com).
 
@@ -106,9 +109,11 @@ Once everything is set up, you can activate it in the *Poison* theme by includin
 
 ### Analytics
 
-Gain insights on who your users are.  Poison currently supports [Plausible](https://plausible.io) which is available via a paid service or by [self-hosting](https://github.com/plausible/analytics).
+Gain insights on your users.  Poison currently supports [Plausible](https://plausible.io) which is available via a paid service or by [self-hosting](https://github.com/plausible/analytics).  Take a look at the Poison demo site's 
 
 **Note**: *Enabling analytics will add external dependencies.*
+
+#### Check out our demo site's Plausible analytics [here](https://plausible.lukeorth.com/poison.lukeorth.com)!
 
 Once you've established your Plausible instance, you can activate it by adding three lines to your ```config.toml``` file.
 
@@ -125,6 +130,28 @@ For reference, the configuration above would add the following code to each page
 
 ```<script defer data-domain="myblog.com" src="https://plausible.myblog.com/js/script.js"></script>```
 
+### Email newsletters
+
+Allow users to subscribe to your blog newsletters via email. 
+Poison currently supports [Listmonk](https://listmonk.app/) which is available via [self-hosting](https://github.com/knadh/listmonk).
+Listmonk is a standalone, self-hosted, newsletter and mailing list manager.
+The downside is that you must host it yourself. 
+Checkout the Listmonk [documentation](https://listmonk.app/docs/) to get started.
+
+Once you've established your Listmonk instance, activate it by adding these lines to your ```config.toml``` file.
+
+```toml
+[params]
+    listmonk = true
+    listmonk_host = "https://listmonk.your_domain.tld"
+    listmonk_subscription_list_uiid = "YOUR_NEWSLETTERS_LIST_UIID"
+    listmonk_subscription_form_text = "Subscribe to my newsletters"       # default: Subscribe to my newsletters
+    listmonk_subscription_success_message = "Thanks for subscribing"      # default: Thanks for subscribing
+    listmonk_subscription_error_message = "Something went wrong"          # default: Sorry, something went wrong. Please, try again
+```
+
+This will insert a form at the bottom of each post's content. 
+The user will be subscribed to the newsletter specified in the ``listmonk_subscription_list_uiid`` parameter.
 
 ### Series
 Sensibly link and display content into "series" (i.e. *Tutorial One*, *Tutorial Two*, etc.).
@@ -149,6 +176,8 @@ For notations that should appear on their own line, use the block quotes `$$ ...
 $$ 5 \times 5 = 25 $$
 
 For notations that should appear on the same line, use the inline quotes `$ ... $`
+
+**Note**: *Enabling KaTeX will add external dependencies.*
     
 ### Tabs
 Some content is just better viewed in tabs.  Luckily we have a shortcode for that.
@@ -178,12 +207,16 @@ This is a code block.
 ### Mermaid diagrams
 You can embed rendered Mermaid diagrams.  
 
+**Note**: *Enabling Mermaid diagrams will add external dependencies.*
+
 ![image](https://github.com/lukeorth/poison/assets/35306887/e21041c3-528e-4941-88ba-310742d99c91)
 
 For an example of how to do this, please visit the [Poison demo site](https://poison.lukeorth.com/posts/introducing-poison/#mermaid-diagrams).
 
 ### PlantUML diagrams
 You can embed rendered PlantUML diagrams.  
+
+**Note**: *Enabling PlantUML diagrams will add external dependencies.*
 
 ![image](https://github.com/lukeorth/poison/assets/35306887/8093ff68-28e4-43c8-8f21-67a3d5615af4)
 
@@ -217,7 +250,7 @@ For more information on how to get started with Hugo and themes, read the offici
 
 After successfully installing *Poison*, the last step is to configure it.
 
-### The Sidebar Menu
+### The sidebar menu
 
 Any items you want displayed in your sidebar menu *must* satisfy two requirements.  They must:
 
@@ -265,7 +298,7 @@ menu = [
     ]
 ```
 
-### The Front Page
+### The front page
 When visiting the base url for the site, i.e. `your.domain.com/`, a paginated feed of your recently added content is displayed in reverse chronological order. By default, only content in the "posts" [page bundle](https://gohugo.io/content-management/page-bundles/) is displayed. You can configure a list of page bundle names to be included on this page by adding the `front_page_content` parameter to your config.toml file.
 
 ```toml
@@ -273,7 +306,7 @@ When visiting the base url for the site, i.e. `your.domain.com/`, a paginated fe
   front_page_content = ["posts", "projects"]
 ```
 
-### Example Config
+### Example config
 I recommend starting by copying/pasting the following code into your config.toml file.  Once you see how it looks, play with the settings as needed.
 
 **NOTE**: To display an image in your sidebar, you'll need to uncomment the `brand_image` path below and have it point to an image file in your project.  The path is relative to the `static` directory.  If you don't have an image, just leave this line commented out.
@@ -309,21 +342,21 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
     ]
 
     # Links to your socials.  Comment or delete any you don't need/use. 
-    github_url = "https://github.com"
-    gitlab_url = "https://gitlab.com"
-    linkedin_url = "https://linkedin.com"
-    twitter_url = "https://twitter.com"
-    mastodon_url = "https://mastodon.social"
-    tryhackme_url = "https://tryhackme.com"
     discord_url = "https://discord.com"
-    youtube_url = "https://youtube.com"
-    instagram_url = "https://instagram.com"
+    email_url = "mailto://user@domain"
     facebook_url = "https://facebook.com"
     flickr_url = "https://flickr.com"
-    telegram_url = "https://telegram.org"
+    github_url = "https://github.com"
+    gitlab_url = "https://gitlab.com"
+    instagram_url = "https://instagram.com"
+    linkedin_url = "https://linkedin.com"
+    mastodon_url = "https://mastodon.social"
     matrix_url = "https://matrix.org"
+    telegram_url = "https://telegram.org"
+    tryhackme_url = "https://tryhackme.com"
+    twitter_url = "https://twitter.com"
     xmpp_url = "https://xmpp.org"
-    email_url = "mailto://user@domain"
+    youtube_url = "https://youtube.com"
 
     # NOTE: If you don't want to use RSS, comment or delete the following lines
     # Adds an RSS icon to the end of the socials which links to {{ .Site.BaseURL }}/index.xml
@@ -332,38 +365,42 @@ pluralizelisttitles = false   # removes the automatically appended "s" on sideba
     rss_section = "posts"
 
     # Hex colors for your sidebar.
+    moon_sun_background_color = "#515151"   # default is #515151
+    moon_sun_color = "#FFF"                 # default is #FFF
+    sidebar_a_color = "#FFF"                # default is #FFF
     sidebar_bg_color = "#202020"            # default is #202020
+    sidebar_h1_color = "#FFF"               # default is #FFF
     sidebar_img_border_color = "#515151"    # default is #515151
     sidebar_p_color = "#909090"             # default is #909090
-    sidebar_h1_color = "#FFF"               # default is #FFF
-    sidebar_a_color = "#FFF"                # default is #FFF
     sidebar_socials_color = "#FFF"          # default is #FFF
-    moon_sun_color = "#FFF"                 # default is #FFF
-    moon_sun_background_color = "#515151"   # default is #515151
 
     # Hex colors for your content in light mode.
-    text_color = "#222"             # default is #222
-    content_bg_color = "#FAF9F6"    # default is #FAF9F6
-    post_title_color = "#303030"    # default is #303030
-    list_color = "#5a5a5a"          # default is #5a5a5a
-    link_color = "#268bd2"          # default is #268bd2
-    date_color = "#515151"          # default is #515151
-    table_border_color = "#E5E5E5"  # default is #E5E5E5
-    table_stripe_color = "#F9F9F9"  # default is #F9F9F9
+    code_color = "#000"                     # default is #000
+    code_background_color = "#E5E5E5"       # default is #E5E5E5
+    code_block_color = "#FFF"               # default is #FFF
+    code_block_background_color = "#272822" # default is #272822
+    content_bg_color = "#FAF9F6"            # default is #FAF9F6
+    date_color = "#515151"                  # default is #515151
+    link_color = "#268BD2"                  # default is #268BD2
+    list_color = "#5A5A5A"                  # default is #5A5A5A
+    post_title_color = "#303030"            # default is #303030
+    table_border_color = "#E5E5E5"          # default is #E5E5E5
+    table_stripe_color = "#F9F9F9"          # default is #F9F9F9
+    text_color = "#222"                     # default is #222
 
     # Hex colors for your content in dark mode
-    text_color_dark = "#eee"                # default is #eee
-    content_bg_color_dark = "#121212"       # default is #121212
-    post_title_color_dark = "#DBE2E9"       # default is #DBE2E9
-    list_color_dark = "#9d9d9d"             # default is #9d9d9d
-    link_color_dark = "#268bd2"             # default is #268bd2
-    date_color_dark = "#9a9a9a"             # default is #9a9a9a
-    table_border_color_dark = "#515151"     # default is #515151
-    table_stripe_color_dark = "#202020"     # default is #202020
-    code_color = "#bf616a"                  # default is #bf616a
-    code_background_color = "#E5E5E5"       # default is #E5E5E5
-    code_color_dark = "#ff7f7f"             # default is #ff7f7f
-    code_background_color_dark = "#393D47"  # default is #393D47
+    code_color_dark = "#FFF"                        # default is #FFF
+    code_background_color_dark = "#515151"          # default is #515151
+    code_block_color_dark = "#FFF"                  # default is #FFF
+    code_block_background_color_dark = "#272822"    # default is #272822
+    content_bg_color_dark = "#121212"               # default is #121212
+    date_color_dark = "#9A9A9A"                     # default is #9A9A9A
+    link_color_dark = "#268BD2"                     # default is #268BD2
+    list_color_dark = "#9D9D9D"                     # default is #9D9D9D
+    post_title_color_dark = "#DBE2E9"               # default is #DBE2E9
+    table_border_color_dark = "#515151"             # default is #515151
+    table_stripe_color_dark = "#202020"             # default is #202020
+    text_color_dark = "#EEE"                        # default is #EEE
 
     # NOTE: If using Remark42 as commenting engine, uncomment and configure these lines
     # remark42 = true
@@ -397,7 +434,7 @@ font size, you could add this:
 
 ## Suggestions / Contributions
 
-Please feel free to add suggestions for new features by opening a new issue in GitHub.  If you like the theme, let us know in the comments section on the [demo site](https://poison.lukeorth.com/posts/introducing-poison/#suggestions--contributions)!
+Please feel free to add suggestions for new features by opening a new issue in [GitHub](https://github.com/lukeorth/poison).
 
 A big shout out and *thank you* to these top contributors:
 

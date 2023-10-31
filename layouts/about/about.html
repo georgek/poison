@@ -3,9 +3,19 @@
     {{ partial "light_dark.html" . }}
 {{ end }}
 <div class="post">
-    {{ with .Site.GetPage "/about/about" }}
-        <h1 class="post-title">{{ .Title }}</h1>
-        {{ .Content }}
+    {{ with .Site.GetPage "/about" }}
+        {{ if .Pages }}
+            {{ range .Pages }}
+                <h1 class="post-title">{{ .Title }}</h1>
+                {{ .Content }}
+            {{ end }}
+        {{ else }}
+            <h1 class="post-title">{{ .Title }}</h1>
+            {{ .Content }}
+        {{ end }}
+    {{ end }}
+    {{ if (.Site.Params.listmonk) }}
+        {{ partial "post/listmonk_email_newsletters.html" . }}
     {{ end }}
 </div>
 {{ end }}
