@@ -180,6 +180,7 @@ a.sidebar-nav-item:focus {
 }
 
 .footnote {
+    text-align: center;
   font-size: 0.7em;
   margin-top: 0.5rem;
   color: var(--sidebar-p-color);
