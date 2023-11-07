@@ -377,7 +377,7 @@ tbody tr:nth-child(odd) th {
     white-space: pre;
 }
 .content a {
-    word-break: break-all;
+    word-break: break-word;
 }
 div.highlight pre {
     overflow-x: auto;
