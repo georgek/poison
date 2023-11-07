@@ -16,7 +16,7 @@ body.layout-reverse .wrapper {
     flex-direction: column;
 }
 
-@media (min-width: 48em) {
+@media screen and (min-width: 48em) {
     .bullet {
         margin-left: 1em;
         text-decoration-line: underline;
@@ -52,7 +52,7 @@ body.layout-reverse .wrapper {
 }
 
 /* phone */
-@media (max-width: calc(48em - 1px)) {
+@media screen and (max-width: calc(48em - 1px)) {
     body > .wrapper, body.layout-reverse .wrapper {
        flex-direction: column;
     }
@@ -398,4 +398,22 @@ div.highlight pre {
 }
 .current {
     color: var(--text-color);
+}
+
+@media print {
+    body {
+        overflow: auto;
+        height: auto;
+    }
+    body > .wrapper {
+        height: auto;
+    }
+    .sidebar {
+        display: none;
+    }
+    .content {
+        width: 100%;
+        max-width: 100%;
+        overflow-y: visible;
+    }
 }
