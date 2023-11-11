@@ -37,6 +37,9 @@ body.layout-reverse .wrapper {
         padding-right: 2rem;
         flex-grow: 1;
     }
+    .sidebar-sticky {
+        position: fixed;
+    }
     .sidebar-about img {
         margin-left: auto;
         margin-right: auto;
@@ -55,10 +58,6 @@ body.layout-reverse .wrapper {
 @media screen and (max-width: calc(48em - 1px)) {
     body > .wrapper, body.layout-reverse .wrapper {
        flex-direction: column;
-    }
-    body {
-       overflow: auto !important;
-       height: auto !important;
     }
     .heading {
         font-weight: 400;
@@ -163,17 +162,9 @@ h1, h2, h3, h4, h5, strong {
     background-color: var(--moon-sun-background-color);
 }
 /* ************************** */
-body {
-    overflow: hidden;
-    height: 100vh;
-}
 body > .wrapper {
     display: flex;
-    height: 100%;
-}
-.container.content {
-    overflow-y: auto;
-    flex-grow: 1;
+    min-height: 100vh;
 }
 .layout-reverse .container.content {
     padding-right: 0;
