@@ -264,6 +264,7 @@ body > .wrapper {
     margin: 0.25rem 0;
 }
 .tags {
+    margin: 0;
     padding-left: 0em;
 }
 .tags li {
