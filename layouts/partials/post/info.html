@@ -1,7 +1,9 @@
 <div class="info">
   <h1 class="post-title">
-    <a href="{{ .Permalink }}">{{ .Title }}</a>
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
   </h1>
+  {{ delimit .Params.author ", " }}
+  ·
   {{ $date := .Date.Format "2006-01-02" }}
   {{ $lastmod := .Lastmod.Format "2006-01-02" }}
   {{ if .Date }}
