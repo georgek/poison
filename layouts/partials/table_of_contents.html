@@ -1,6 +1,8 @@
 <div class="article-toc {{if .Site.Params.layoutReverse}}layout-reverse{{end}}">
     <div class="toc-wrapper">
-      <h4 id="contents">Contents</h4>
-      {{ .TableOfContents }}
+        {{ if ne (print .TableOfContents) "<nav id=\"TableOfContents\"></nav>" }}
+            <h4 id="contents">Contents</h4>
+            {{ .TableOfContents }}
+        {{ end }}
     </div>
 </div>
