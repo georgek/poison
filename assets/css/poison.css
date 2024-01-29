@@ -328,9 +328,6 @@ tbody tr:nth-child(odd) th {
 .article-toc .toc-wrapper{
     position: fixed;
 }
-.article-toc nav {
-    margin-left: 1em;
-}
 .article-toc h4 {
     margin-left: 0;
 }
@@ -340,19 +337,24 @@ tbody tr:nth-child(odd) th {
 }
 .article-toc li {
     list-style: none;
-    margin-left: 20px;
-    margin-top: 2px;
+    margin-left: 0.5em;
 }
 .article-toc li a {
-    color: var(--text-color);
+    display: inline-block;
+    color: var(--toc-color);
     text-decoration: none;
-}
-.article-toc li.active {
-    font-weight: bold;
-}
-.article-toc li.inactive {
     font-weight: 300;
+    padding-left: 1em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    transition: color 100ms ease-in-out;
 }
+.article-toc li.active > a {
+    color: var(--text-color);
+    padding-left: 0.8em;
+    border-left: 0.2em solid #005522;
+}
+
 @media screen and (min-width: 110em) {
     .article-toc {
         display: block;
