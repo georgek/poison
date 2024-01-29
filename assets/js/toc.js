@@ -16,6 +16,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 document.querySelector(`#TableOfContents ul li a[href="#${id}"]`).parentElement.classList.remove("active");
             }
         });
+    }, {
+        rootMargin: "-5% 0px -90% 0px",
     });
 
     document.querySelectorAll("section").forEach((section) => {
