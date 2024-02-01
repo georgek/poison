@@ -121,7 +121,7 @@ body.layout-reverse .wrapper {
 h1, h2, h3, h4, h5, strong {
     color: var(--text-color);
 }
-.content div, p, table {
+.content p, table {
     color: var(--text-color);
 }
 .page-title, .post-title, .post-title a {
