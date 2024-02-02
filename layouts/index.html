@@ -4,16 +4,18 @@
     {{ range (.Paginate (where .Site.RegularPages "Type" "in" $frontPageTypes)).Pages }}
     <article class="post">
         {{ partial "post/info.html" . }}
-        {{ if or (.Site.Params.noSummary) (.Params.noSummary) }}
-        {{ .Content }}
-        {{ else }}
-        {{ .Summary }}
-        {{ if .Truncated }}
-        <div class="read-more-link">
-            <a href="{{ .RelPermalink }}">Read More…</a>
-        </div>
-        {{ end }}
-        {{ end }}
+        <p>
+            {{ if or (.Site.Params.noSummary) (.Params.noSummary) }}
+                {{ .Content }}
+            {{ else }}
+                {{ .Summary }}
+                {{ if .Truncated }}
+                    <div class="read-more-link">
+                        <a href="{{ .RelPermalink }}">Read More…</a>
+                    </div>
+                {{ end }}
+            {{ end }}
+        </p>
     </article>
     {{- end }}
 </div>

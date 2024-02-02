@@ -1,3 +1,8 @@
+a:not([class]) {
+    text-underline-offset: 0.25em;
+    text-decoration-thickness: max(.08em,1px);
+}
+
 body.layout-reverse .container.content {
    direction: rtl;
 }
@@ -124,6 +129,10 @@ h1, h2, h3, h4, h5, strong {
 .content p, table {
     color: var(--text-color);
 }
+.info {
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
 .page-title, .post-title, .post-title a {
     color: var(--post-title-color);
 }
@@ -203,12 +212,12 @@ body > .wrapper {
 .post-date {
     display: inline-block;
     color: var(--date-color);
+    margin-bottom: 0;
 }
 .info span {
     display: inline-block;
 }
 .info ul {
-    display: inline-block;
     float: right;
 }
 .info ul li {
@@ -263,13 +272,22 @@ body > .wrapper {
     cursor: pointer;
     margin: 0.25rem 0;
 }
+.post-author {
+    max-width: 70%;
+    display: flex;
+}
 .tags {
     margin: 0;
     padding-left: 0em;
+    max-width: 30%;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
 }
 .tags li {
     display: inline;
     text-decoration: none;
+    white-space: nowrap;
 }
 .tags li a {
     color: var(--table-stripe-color);
@@ -395,6 +413,9 @@ div.highlight pre {
 }
 .current {
     color: var(--text-color);
+}
+.nowrap {
+    white-space: nowrap;
 }
 
 @media print {
