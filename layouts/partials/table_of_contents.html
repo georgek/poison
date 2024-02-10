@@ -2,6 +2,9 @@
     <div class="toc-wrapper">
         {{ if ne (print .TableOfContents) "<nav id=\"TableOfContents\"></nav>" }}
             <h4 id="contents">Contents</h4>
+            <ul>
+                <li><a href="#top">(Top)</a></li>
+            </ul>
             {{ .TableOfContents }}
         {{ end }}
     </div>
